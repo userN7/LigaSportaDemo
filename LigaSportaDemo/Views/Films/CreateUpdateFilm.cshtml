@@ -1,0 +1,26 @@
+﻿@model FilmInfo
+<div class="CreateUpdateFilmDiv">
+	<form asp-action="CreateUpdateFilm" asp-controller="Films" method="post" enctype="multipart/form-data">
+		<input type="hidden" name="isUpdate" value="@((int)(ViewData["IsUpdate"]??0))">
+		<input type="hidden" asp-for="@Model.Id" />
+		<input type="hidden" asp-for="@Model.PosterPath" />
+		<div>Имя фильма</div>
+		<input class="input-group" asp-for="@Model.Name" />
+		<br />
+		<div>Дата релиза</div>
+		<input class="input-group" type="date" asp-for="@Model.ReleaseDate" />
+		<br />
+		<div>Директор</div>
+		<input class="input-group" asp-for="@Model.Director" />
+		<br />
+		<div class="col-form-label">Описание</div>
+		<textarea class="input-group-text" asp-for="@Model.Description"></textarea>
+		<br />
+		<div class="col-form-label">Файл постера</div>
+		<div class="col-form-label">Текущий файл постера: @Model.PosterPath</div>
+		<input class="form-control-file" type="file" name="uploadedFile" />
+		<br />
+		<button type="submit" class="btn btn-primary">Сохранить</button>
+	</form>
+</div>
+

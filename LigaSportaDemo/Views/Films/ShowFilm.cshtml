@@ -1,0 +1,23 @@
+﻿@model FilmInfo
+<div class="row">
+<div class="col-5">
+	@if (@Model.PosterPath != null)	
+	{
+		<img class="PosterBlock" src="@Url.Content(@Model.PosterPath)" />
+	}
+	@if (@Model.PosterPath == null)
+	{ 
+	<h4 class="text-center">Нет постера</h4>
+	}
+</div>
+<div class="col-5">
+	<div><b>Имя фильма:</b> @Model.Name</div>
+	
+	<div><b>Дата релиза:</b> @Model.ReleaseDate.ToShortDateString()</div>
+	
+	<div><b>Директор:</b> @Model.Director</div>
+	
+	<div><b>Описание:</b> @Model.Description</div>
+	
+</div>
+</div>

@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - LigaSportaDemo</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <style>
+		.deleteFilmBorder {
+			display: block;
+			height: 150px;
+			width: 150px;
+			border: #000000 solid 15px;
+			border-radius: 2px;
+		}
+
+		.deleteFilmBlock {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-75px, -75px);
+		}
+
+		.PosterBlock {
+			height: 80%;
+			width: 90%;
+			border: #000000 solid 5px;
+			border-radius: 2px;
+			display: block;
+		}
+		
+		.CreateUpdateFilmDiv {
+		}
+			.CreateUpdateFilmDiv input {
+			width:150px;
+			}
+    </style>
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row p-2">
+			<div class="col-2">
+				<a class="btn btn-block btn-outline-primary" asp-controller="Films" asp-action="CreateFilm">Создать фильм</a>
+
+			</div>
+			<div class="container col-10">
+				@RenderBody()
+
+			</div>
+		</div>
+	</div>
+	
+				<script src="~/lib/jquery/dist/jquery.min.js"></script>
+				<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+				<script src="~/js/site.js" asp-append-version="true"></script>
+				@RenderSection("Scripts", required: false)
+</body>
+</html>

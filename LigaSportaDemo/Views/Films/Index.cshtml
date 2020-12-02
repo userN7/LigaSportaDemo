@@ -1,0 +1,64 @@
+﻿@model FilmsListViewModel
+
+
+@if (Model.Films != null && Model.Films.Count() > 0)
+{
+	<div>
+		<table class="table table-striped">
+			<thead>
+				<tr class="text-center">
+					@foreach (var colName in FilmsTableColNames)
+					{
+						<th>
+							@colName
+						</th>
+					}
+					<th>
+					</th>
+				</tr>
+			</thead>
+			<tbody class="text-center">
+				@foreach (var film in Model.Films)
+				{
+					<tr>
+						<td>
+							@film.Name
+						</td>
+						<td>
+							@film.Description
+						</td>
+						<td>
+							@film.ReleaseDate.ToShortDateString()
+						</td>
+						<td>
+							@film.Director
+						</td>
+						<td>
+							@film.CreatorUser
+						</td>
+						<td>
+							@film.PosterPath
+						</td>
+						<td>
+							<a class="btn btn-outline-primary" asp-route-filmId="@film.Id" asp-action="ShowFilm">Показать</a><br />
+							<a class="btn btn-outline-primary" asp-route-filmId="@film.Id" asp-action="UpdateFilm">Изменить</a><br />
+							<a class="btn btn-outline-primary" asp-route-filmId="@film.Id" asp-action="DeleteFilmView">Удалить</a><br />
+						</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+	</div>
+	<div page-model="@Model.PagingInfo" page-action="Index" page-classes-enabled="true"
+		 page-class="btn" page-class-normal="btn-outline-dark" page-class-selected="btn-primary"
+		 class="btn-group pull-right m-1"></div>
+	
+	<form asp-action="Index">
+		<div class="pull-right">Стр: <input style="width:50px" name="filmPage" /><button class="btn btn-outline-primary" type="submit">Перейти</button></div>
+		
+	</form>
+}
+else
+{
+	<h2 style="color:red">Нет фильмов</h2>
+}

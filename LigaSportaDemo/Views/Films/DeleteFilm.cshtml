@@ -1,0 +1,9 @@
+﻿@model FilmInfo
+	<div class="container-fluid loginBlock">
+		<div class="m-1 p-1 border text-center">
+		<h4 style="color:red">Удалить фильм<br />"@Model.Name"?</h4>
+			<a class="btn btn-primary" asp-action="DeleteFilm" asp-route-filmId="@Model.Id">Да</a>
+			<a class="btn btn-secondary" asp-action="Index">Отмена</a>
+			
+		</div>
+	</div>
